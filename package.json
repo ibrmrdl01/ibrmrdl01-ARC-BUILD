@@ -1,0 +1,33 @@
+{
+  "name": "arc-task-escrow",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "hardhat test",
+    "deploy:arc": "hardhat run scripts/deploy.ts --network arcTestnet"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.85.0",
+    "next": "^15.4.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "viem": "^2.33.3",
+    "wagmi": "^2.16.0",
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@types/minimatch": "^5.1.2",
+    "@types/ms": "^2.1.0",
+    "@types/node": "^22.17.1",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "hardhat": "^2.26.2",
+    "typescript": "^5.9.2"
+  }
+}
