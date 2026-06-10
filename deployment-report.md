@@ -1,6 +1,6 @@
 # Arc Testnet Deployment Report
 
-Status: Prepared and locally validated, not deployed from this environment.
+Status: Deployed to Arc Testnet on 2026-06-10.
 
 ## Architecture
 
@@ -23,11 +23,11 @@ Status: Prepared and locally validated, not deployed from this environment.
 npm run deploy:arc
 ```
 
-## Report Fields To Fill After Deployment
+## Deployment Result
 
-- Deployer:
-- TaskEscrow address:
-- Arcscan contract link:
+- Deployer: `0x031c5B0922c3d04024A5C2bA72f961d732191b04`
+- TaskEscrow address: `0x90F707e74E36A14Ff44477118E7c35bFfEb2F300`
+- Arcscan contract link: `https://testnet.arcscan.app/address/0x90F707e74E36A14Ff44477118E7c35bFfEb2F300`
 - Frontend URL:
 - Test result: `npm test` passed, 6 tests.
 - Typecheck result: `npm run typecheck` passed.
@@ -39,4 +39,5 @@ npm run deploy:arc
 - Native balance is USDC, not ETH.
 - ERC-20 USDC decimals return `6`.
 - Escrow address is set in `NEXT_PUBLIC_TASK_ESCROW_ADDRESS`.
+- Compatibility escrow address is set in `VITE_ARC_JOB_BOARD_ADDRESS`.
 - UI shows transaction pending, success, failure, and explorer links.
