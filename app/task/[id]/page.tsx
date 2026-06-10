@@ -9,14 +9,14 @@ export default async function TaskPage({ params }: { params: Promise<{ id: strin
     <main className="shell">
       <header className="topbar">
         <div className="brand">
-          <strong>Task #{id}</strong>
-          <span>Proof, review, and payment release</span>
+          <strong>Invoice #{id}</strong>
+          <span>Delivery proof, payer review, and USDC release</span>
         </div>
         <WalletConnectButton />
       </header>
       <section className="content">
         <div className="toolbar">
-          <h1>Task detail</h1>
+          <h1>Invoice detail</h1>
           <Link className="button secondary" href="/">
             Back
           </Link>

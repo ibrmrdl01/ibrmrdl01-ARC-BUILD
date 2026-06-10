@@ -7,16 +7,16 @@ export default function CreateTaskPage() {
     <main className="shell">
       <header className="topbar">
         <div className="brand">
-          <strong>New escrow task</strong>
-          <span>ERC-20 USDC is locked after funding</span>
+          <strong>New invoice escrow</strong>
+          <span>ERC-20 USDC is locked after payer funding</span>
         </div>
         <WalletConnectButton />
       </header>
       <section className="content">
         <div className="toolbar">
           <div>
-            <h1>Create task</h1>
-            <p className="muted">Create first, then fund escrow from the task card.</p>
+            <h1>Create invoice</h1>
+            <p className="muted">Create the invoice, then approve and fund escrow from the invoice card.</p>
           </div>
           <Link className="button secondary" href="/">
             Back

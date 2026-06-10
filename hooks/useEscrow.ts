@@ -60,7 +60,7 @@ export function useEscrow() {
       setLastTx(undefined);
     },
     createTask: (title: string, detailsURI: string, amount: string) =>
-      run("Create task", () =>
+      run("Create invoice", () =>
         writeContractAsync({
           address: requireEscrow(),
           abi: taskEscrowAbi,
@@ -79,7 +79,7 @@ export function useEscrow() {
           args: [escrow as Address, amount],
         })
       );
-      return run("Fund task", () =>
+      return run("Fund escrow", () =>
         writeContractAsync({
           address: escrow,
           abi: taskEscrowAbi,
@@ -89,7 +89,7 @@ export function useEscrow() {
       );
     },
     assignTask: (taskId: bigint) =>
-      run("Assign task", () =>
+      run("Accept invoice", () =>
         writeContractAsync({
           address: requireEscrow(),
           abi: taskEscrowAbi,
@@ -98,7 +98,7 @@ export function useEscrow() {
         })
       ),
     submitWork: (taskId: bigint, proofURI: string) =>
-      run("Submit work", () =>
+      run("Submit delivery", () =>
         writeContractAsync({
           address: requireEscrow(),
           abi: taskEscrowAbi,
@@ -116,7 +116,7 @@ export function useEscrow() {
         })
       ),
     rejectTask: (taskId: bigint, reason: string) =>
-      run("Reject task", () =>
+      run("Request revision", () =>
         writeContractAsync({
           address: requireEscrow(),
           abi: taskEscrowAbi,

@@ -3,8 +3,8 @@ import { Providers } from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Arc Task Escrow",
-  description: "USDC task escrow system for Arc Testnet",
+  title: "Arc USDC Invoice & Escrow",
+  description: "USDC invoice escrow workflow for Arc Testnet",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

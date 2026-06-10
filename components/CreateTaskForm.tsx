@@ -22,15 +22,15 @@ export function CreateTaskForm() {
   return (
     <form className="form" onSubmit={submit}>
       <div className="field">
-        <label htmlFor="title">Task title</label>
-        <input id="title" required value={title} onChange={(event) => setTitle(event.target.value)} />
+        <label htmlFor="title">Invoice title</label>
+        <input id="title" required placeholder="Design sprint invoice" value={title} onChange={(event) => setTitle(event.target.value)} />
       </div>
       <div className="field">
-        <label htmlFor="details">Details or URI</label>
+        <label htmlFor="details">Scope, deliverables, or URI</label>
         <textarea id="details" value={detailsURI} onChange={(event) => setDetailsURI(event.target.value)} />
       </div>
       <div className="field">
-        <label htmlFor="amount">Escrow amount, ERC-20 USDC with 6 decimals</label>
+        <label htmlFor="amount">Invoice amount, ERC-20 USDC with 6 decimals</label>
         <input
           id="amount"
           inputMode="decimal"
@@ -43,12 +43,12 @@ export function CreateTaskForm() {
       </div>
       {aiHint && (
         <div className="panel">
-          <h2>AI executor module</h2>
+          <h2>Delivery agent brief</h2>
           <pre className="muted">{aiHint}</pre>
         </div>
       )}
       <button className="button" disabled={escrow.state === "pending"} type="submit">
-        Create task
+        Create invoice
       </button>
       {escrow.message && <span className={escrow.state === "failed" ? "error" : "muted"}>{escrow.message}</span>}
       {escrow.explorerLink && (

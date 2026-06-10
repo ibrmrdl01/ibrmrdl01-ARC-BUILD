@@ -1,10 +1,10 @@
 export function buildAiExecutorHint(title: string, details: string) {
   return [
-    `Task: ${title}`,
-    "Executor checklist:",
-    "- Read the task requirements and acceptance criteria.",
-    "- Produce a concrete deliverable.",
-    "- Submit a proof URI or concise proof text that the creator can audit.",
+    `Invoice: ${title}`,
+    "Provider checklist:",
+    "- Read the invoice scope and acceptance criteria.",
+    "- Produce the agreed deliverable.",
+    "- Submit a delivery proof URI or concise proof text that the payer can audit.",
     `Context: ${details}`,
   ].join("\n");
 }

@@ -7,19 +7,19 @@ export default function HomePage() {
     <main className="shell">
       <header className="topbar">
         <div className="brand">
-          <strong>Arc Task Escrow</strong>
-          <span>Arc Testnet only, gas paid in USDC</span>
+          <strong>Arc USDC Invoice & Escrow</strong>
+          <span>Arc Testnet only, native gas and escrow settled in USDC</span>
         </div>
         <WalletConnectButton />
       </header>
       <section className="content">
         <div className="toolbar">
           <div>
-            <h1>Tasks</h1>
-            <p className="muted">Funds remain locked until the creator approves submitted work.</p>
+            <h1>Invoices</h1>
+            <p className="muted">Fund an invoice into escrow, review delivery proof, then release USDC.</p>
           </div>
           <Link className="button" href="/create-task">
-            Create task
+            New invoice
           </Link>
         </div>
         <TaskList />

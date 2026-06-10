@@ -26,20 +26,20 @@ export function TaskCard({ task, onChanged }: { task: Task; onChanged?: () => vo
     <article className="card">
       <TaskStatusBadge status={task.status} />
       <h2>{task.title}</h2>
-      <p className="muted">{task.detailsURI || "No details URI provided"}</p>
+      <p className="muted">{task.detailsURI || "No invoice scope provided"}</p>
       <strong>{formatUSDC(task.amount)}</strong>
       <div className="actions">
         <Link className="button secondary" href={`/task/${task.id.toString()}`}>
-          Details
+          Open
         </Link>
         {canFund(task, address) && (
           <button className="button" disabled={escrow.state === "pending"} onClick={fund}>
-            Fund escrow
+            Approve and fund
           </button>
         )}
         {canAssign(task, address) && (
           <button className="button" disabled={escrow.state === "pending"} onClick={assign}>
-            Take task
+            Accept invoice
           </button>
         )}
       </div>

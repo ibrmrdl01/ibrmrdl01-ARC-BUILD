@@ -53,11 +53,11 @@ export function TaskDetail({ id }: { id: bigint }) {
   }
 
   if (taskRead.isLoading) {
-    return <div className="notice">Loading task from Arc Testnet.</div>;
+    return <div className="notice">Loading invoice from Arc Testnet.</div>;
   }
 
   if (taskRead.error || !task) {
-    return <div className="notice">Task not found or could not be loaded.</div>;
+    return <div className="notice">Invoice not found or could not be loaded.</div>;
   }
 
   return (
@@ -66,7 +66,7 @@ export function TaskDetail({ id }: { id: bigint }) {
         <div>
           <TaskStatusBadge status={task.status} />
           <h1>{task.title}</h1>
-          <p className="muted">{task.detailsURI || "No details URI provided"}</p>
+          <p className="muted">{task.detailsURI || "No invoice scope provided"}</p>
         </div>
         <strong>{formatUSDC(task.amount)}</strong>
       </div>
@@ -77,24 +77,24 @@ export function TaskDetail({ id }: { id: bigint }) {
           <p>{task.creator}</p>
         </div>
         <div>
-          <p className="muted">Executor</p>
+          <p className="muted">Provider</p>
           <p>{task.executor === "0x0000000000000000000000000000000000000000" ? "Unassigned" : task.executor}</p>
         </div>
         <div>
-          <p className="muted">Proof</p>
-          <p>{task.proofURI || "No proof submitted"}</p>
+          <p className="muted">Delivery proof</p>
+          <p>{task.proofURI || "No delivery proof submitted"}</p>
         </div>
       </div>
 
       <div className="actions">
         {canFund(task, address) && (
           <button className="button" disabled={escrow.state === "pending"} onClick={() => refreshAfter(escrow.approveAndFund(task.id, task.amount))}>
-            Fund escrow
+            Approve and fund escrow
           </button>
         )}
         {canAssign(task, address) && (
           <button className="button" disabled={escrow.state === "pending"} onClick={() => refreshAfter(escrow.assignTask(task.id))}>
-            Take task
+            Accept invoice
           </button>
         )}
       </div>
@@ -108,11 +108,11 @@ export function TaskDetail({ id }: { id: bigint }) {
           }}
         >
           <div className="field">
-            <label htmlFor="proof">Proof URI or proof text</label>
+            <label htmlFor="proof">Delivery proof URI or proof text</label>
             <textarea id="proof" required value={proofURI} onChange={(event) => setProofURI(event.target.value)} />
           </div>
           <button className="button" disabled={escrow.state === "pending"} type="submit">
-            Submit proof
+            Submit delivery proof
           </button>
         </form>
       )}
@@ -123,11 +123,11 @@ export function TaskDetail({ id }: { id: bigint }) {
             Approve and release USDC
           </button>
           <div className="field">
-            <label htmlFor="reject">Reject reason</label>
+            <label htmlFor="reject">Revision reason</label>
             <input id="reject" value={rejectReason} onChange={(event) => setRejectReason(event.target.value)} />
           </div>
-          <button className="button danger" disabled={escrow.state === "pending"} onClick={() => refreshAfter(escrow.rejectTask(task.id, rejectReason || "Rejected"))}>
-            Reject work
+          <button className="button danger" disabled={escrow.state === "pending"} onClick={() => refreshAfter(escrow.rejectTask(task.id, rejectReason || "Revision requested"))}>
+            Request revision
           </button>
         </div>
       )}
